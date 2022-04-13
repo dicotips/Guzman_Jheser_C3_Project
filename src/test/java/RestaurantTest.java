@@ -83,6 +83,16 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
 
+    @Test
+    public void get_order_value_gives_2_item_selected_with_Sweet_corn_soup_and_Vegetable_lasagne() {
+        LocalTime openingTime = LocalTime.parse("10:30:00");
+        LocalTime closingTime = LocalTime.parse("22:00:00");
+        restaurant = createRestaurantWithMenuItems(openingTime, closingTime);
+
+        int total = restaurant.getOrderValue("Sweet corn soup", "Vegetable lasagne");
+        assertEquals(388, total);
+    }
+
     private Restaurant createRestaurantWithMenuItems(LocalTime openingTime, LocalTime closingTime) {
         restaurant = new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
         restaurant.addToMenu("Sweet corn soup",119);
