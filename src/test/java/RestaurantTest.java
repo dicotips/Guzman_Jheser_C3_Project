@@ -29,9 +29,7 @@ class RestaurantTest {
         LocalTime currentTime = LocalTime.of(12,00,00);
 
         Mockito.when(restaurant.getCurrentTime()).thenReturn(currentTime);
-
         boolean isRestaurantOpen = restaurant.isRestaurantOpen();
-
         assertEquals(true, isRestaurantOpen);
     }
 
@@ -42,15 +40,12 @@ class RestaurantTest {
         LocalTime openingTime = LocalTime.parse("10:30:00");
         LocalTime closingTime = LocalTime.parse("22:00:00");
         restaurant = createRestaurantWithMenuItems(openingTime, closingTime);
-
         Restaurant restaurant = Mockito.mock(Restaurant.class);
 
         LocalTime currentTime = LocalTime.of(10,00,00);
 
         Mockito.when(restaurant.getCurrentTime()).thenReturn(currentTime);
-
         boolean isRestaurantOpen = restaurant.isRestaurantOpen();
-
         assertEquals(false, isRestaurantOpen);
     }
 
